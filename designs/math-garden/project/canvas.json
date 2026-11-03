@@ -1,0 +1,96 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Feedback-Tablet.dc.html": {
+      "h": 820,
+      "is_interactive": true,
+      "title": "平板 · 温和纠错",
+      "w": 1180,
+      "x": 1260,
+      "y": 260
+    },
+    "Main.dc.html": {
+      "h": 820,
+      "is_interactive": true,
+      "title": "平板 · 数学答题",
+      "w": 1180,
+      "x": 0,
+      "y": 260
+    },
+    "Quiz-Phone.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "手机 · 数学答题",
+      "w": 390,
+      "x": 0,
+      "y": 1320
+    },
+    "Summary-Phone.dc.html": {
+      "h": 844,
+      "title": "手机 · 本局总结",
+      "w": 390,
+      "x": 470,
+      "y": 1320
+    },
+    "Summary-Tablet.dc.html": {
+      "h": 820,
+      "title": "平板 · 本局总结",
+      "w": 1180,
+      "x": 2520,
+      "y": 260
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-03T03:10:17Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "noteOrder": [
+    "tablet-title",
+    "phone-title",
+    "session-plan"
+  ],
+  "notes": {
+    "phone-title": {
+      "kind": "title1",
+      "maxW": 860,
+      "text": "手机竖屏 · 相同步骤，更轻的排版",
+      "w": 240,
+      "x": 0,
+      "y": 1116
+    },
+    "session-plan": {
+      "fill": "pink",
+      "text": "本局计划\n\n共 18 题\n3 题热身\n9 题自适应核心练习\n4 题情境 + 缺失数字\n2 题温和挑战\n\n每个答案都用图示解释，不堆长段文字。",
+      "w": 340,
+      "x": 3720,
+      "y": 260
+    },
+    "tablet-title": {
+      "kind": "title1",
+      "maxW": 3700,
+      "text": "平板横屏 · 完整学习闭环",
+      "w": 240,
+      "x": 0,
+      "y": 56
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Feedback-Tablet.dc.html",
+    "Summary-Tablet.dc.html",
+    "Quiz-Phone.dc.html",
+    "Summary-Phone.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Page 1"
+    }
+  ],
+  "title": "数学花园"
+}

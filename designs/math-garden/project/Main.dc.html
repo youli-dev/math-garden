@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>数学花园 · 平板答题</title>
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+SC:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans SC", sans-serif;
+      color: #213D37;
+      background-color: #FFF8EA;
+      background-image: radial-gradient(#E9DDC8 0.9px, transparent 0.9px);
+      background-size: 20px 20px;
+    }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    a { color: #213D37; }
+    a:hover { color: #8E344D; }
+  </style>
+</helmet>
+<div style="width: 1180px; height: 820px; box-sizing: border-box; position: relative; overflow: hidden; padding: 22px 28px 20px; display: flex; flex-direction: column; gap: 14px">
+  <svg aria-hidden="true" viewBox="0 0 190 190" style="position: absolute; width: 190px; height: 190px; right: -36px; top: -52px; opacity: 0.95">
+    <path d="M95 95C52 78 23 105 19 146C55 166 94 153 110 112C139 143 174 136 188 102C156 79 122 79 95 95Z" fill="#DCECE1"/>
+    <path d="M104 103C103 61 132 38 169 48C171 84 145 108 112 112" fill="#A9D5BE"/>
+    <path d="M104 103C81 61 47 57 22 82C37 113 68 125 104 110" fill="#F5B6BE"/>
+  </svg>
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <div aria-hidden="true" style="width: 46px; height: 46px; border-radius: 16px 16px 16px 5px; background: #E85E77; display: grid; place-items: center; box-shadow: 0 4px 0 #B73A57">
+        <svg viewBox="0 0 30 30" style="width: 27px; height: 27px">
+          <circle cx="15" cy="9" r="6" fill="#FFF5E7"/>
+          <circle cx="9" cy="15" r="6" fill="#FFF5E7"/>
+          <circle cx="21" cy="15" r="6" fill="#FFF5E7"/>
+          <circle cx="15" cy="21" r="6" fill="#FFF5E7"/>
+          <circle cx="15" cy="15" r="5" fill="#F4B742"/>
+        </svg>
+      </div>
+      <div>
+        <div style="font-family: 'Baloo 2', 'Noto Sans SC', sans-serif; font-size: 25px; line-height: 25px; font-weight: 800; letter-spacing: -0.4px">数学花园</div>
+        <div style="font-size: 12px; line-height: 16px; font-weight: 800; letter-spacing: 0.06em; color: #56766E">每天一点点，数学开满花</div>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px">
+      <div style="height: 42px; padding: 0 16px; display: flex; align-items: center; gap: 9px; border: 2px solid #CFE1D5; border-radius: 999px; background: #FFFFFFB8; font-weight: 800; font-size: 14px">
+        <svg aria-hidden="true" viewBox="0 0 18 18" style="width: 17px; height: 17px; fill: none; stroke: #198B82; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round">
+          <path d="M9 2C6 5 6 8 9 11C12 8 12 5 9 2Z"/>
+          <path d="M9 10V16"/>
+          <path d="M9 14C6 14 4 12 3 9C6 9 8 10 9 14Z"/>
+          <path d="M9 13C12 13 14 11 15 9C12 8 10 10 9 13Z"/>
+        </svg>
+        <span>已开 6 朵花</span>
+      </div>
+      <button aria-label="暂停答题" style="width: 44px; height: 42px; border: 2px solid #CFE1D5; border-radius: 999px; background: #FFFFFFB8; display: grid; place-items: center">
+        <svg aria-hidden="true" viewBox="0 0 20 20" style="width: 18px; height: 18px; fill: #213D37">
+          <rect x="5" y="4" width="3.5" height="12" rx="1.2"/>
+          <rect x="11.5" y="4" width="3.5" height="12" rx="1.2"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <section aria-label="答题进度" style="padding: 11px 16px; display: flex; align-items: center; gap: 14px; border: 2px solid #DDE7D7; border-radius: 20px; background: #FFFDF7E8; box-shadow: 0 4px 0 #EEE5D2">
+    <div style="white-space: nowrap; font-size: 13px; font-weight: 900; color: #56766E">花园小径</div>
+    <div style="display: flex; align-items: center; gap: 7px; flex-grow: 1; justify-content: center">
+      <sc-for list="{{ trail }}" as="stop" hint-placeholder-count="18">
+        <div aria-label="{{ stop.label }}" style="{{ stop.style }}">
+          <svg viewBox="0 0 20 20" aria-hidden="true" style="width: 18px; height: 18px">
+            <circle cx="10" cy="7" r="4.3" fill="{{ stop.petal }}"/>
+            <circle cx="6.4" cy="10.1" r="4.3" fill="{{ stop.petal }}"/>
+            <circle cx="13.6" cy="10.1" r="4.3" fill="{{ stop.petal }}"/>
+            <circle cx="10" cy="13" r="4.3" fill="{{ stop.petal}}"/>
+            <circle cx="10" cy="10" r="3.1" fill="{{ stop.center }}"/>
+            <path d="M10 13V18" stroke="#6D9D78" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </sc-for>
+    </div>
+    <div style="white-space: nowrap; font-size: 14px; font-weight: 900; color: #213D37">6 / 18</div>
+  </section>
+
+  <main style="min-height: 0; flex-grow: 1; display: grid; grid-template-columns: minmax(0, 1fr) 336px; gap: 18px">
+    <section style="min-width: 0; border: 2px solid #D7DFD5; border-radius: 28px; background: #FFFFFCF2; box-shadow: 0 7px 0 #E8DFCF; padding: 18px 24px 20px; display: flex; flex-direction: column; gap: 11px">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
+        <div>
+          <div style="font-size: 12px; line-height: 16px; font-weight: 900; letter-spacing: 0.08em; color: #198B82">两位数加法</div>
+          <h1 style="margin: 3px 0 0; font-family: 'Baloo 2', 'Noto Sans SC', sans-serif; font-size: 31px; line-height: 34px; letter-spacing: -0.5px; color: #213D37">算一算：47 + 26</h1>
+        </div>
+        <div style="padding: 7px 12px; border-radius: 999px; background: #EAF4EC; color: #315D50; font-size: 12px; font-weight: 900; white-space: nowrap">先整十，再个位</div>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 4px 8px 6px">
+        <div style="display: flex; align-items: center; gap: 18px; font-family: 'Baloo 2', sans-serif; font-size: 70px; line-height: 1; font-weight: 800; letter-spacing: 0.01em">
+          <span>47</span>
+          <span style="color: #E85E77">+</span>
+          <span>26</span>
+          <span style="color: #A8B6AD">=</span>
+        </div>
+        <label for="answer" style="position: relative; display: block">
+          <span style="position: absolute; top: -18px; left: 14px; font-size: 11px; font-weight: 900; letter-spacing: 0.06em; color: #56766E">你的答案</span>
+          <input id="answer" value="{{ entered }}" inputmode="numeric" aria-label="你的答案" placeholder="?" style="width: 174px; height: 90px; box-sizing: border-box; border: 3px solid #198B82; border-radius: 22px; outline: 0; background: #F3FBF5; color: #213D37; font-family: 'Baloo 2', 'Noto Sans SC', sans-serif; font-size: 53px; line-height: 1; font-weight: 800; text-align: center; box-shadow: inset 0 -5px 0 #D7EEE0, 0 4px 0 #B7D9C5">
+        </label>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px">
+        <div style="flex-grow: 1; height: 1px; background: #E6E5DA"></div>
+        <div style="font-size: 12px; font-weight: 800; color: #6C8079">点数字，或用键盘输入</div>
+        <div style="flex-grow: 1; height: 1px; background: #E6E5DA"></div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 154px; gap: 12px">
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+          <sc-for list="{{ keys }}" as="key" hint-placeholder-count="9">
+            <button aria-label="{{ key.label }}" onClick="{{ key.press }}" style="{{ key.style }}">{{ key.label }}</button>
+          </sc-for>
+          <button aria-label="清空答案" onClick="{{ clear }}" style="height: 52px; border: 2px solid #E3C8C7; border-radius: 15px; background: #FFF4F2; color: #8E344D; font-size: 16px; font-weight: 900; box-shadow: 0 3px 0 #E9D4D1">清空</button>
+          <button aria-label="输入零" onClick="{{ zeroPress }}" style="height: 52px; border: 2px solid #D6E3DA; border-radius: 15px; background: #FFFFFF; color: #213D37; font-size: 22px; font-weight: 900; box-shadow: 0 3px 0 #DDE6DE">0</button>
+          <button aria-label="删除上一位" onClick="{{ backspace }}" style="height: 52px; border: 2px solid #D6E3DA; border-radius: 15px; background: #FFFFFF; display: grid; place-items: center; box-shadow: 0 3px 0 #DDE6DE">
+            <svg aria-hidden="true" viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: none; stroke: #213D37; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round">
+              <path d="M9 5H20V19H9L3 12L9 5Z"/>
+              <path d="M12 9L17 15M17 9L12 15"/>
+            </svg>
+          </button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <a href="Feedback-Tablet.dc.html" style="height: 72px; display: flex; align-items: center; justify-content: center; gap: 10px; border-radius: 20px; background: #213D37; color: #FFF8EA; font-size: 19px; font-weight: 900; text-decoration: none; box-shadow: 0 5px 0 #102B26">
+            检查答案
+            <svg aria-hidden="true" viewBox="0 0 20 20" style="width: 19px; height: 19px; fill: none; stroke: #FFF8EA; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round">
+              <path d="M4 10H16M11 5L16 10L11 15"/>
+            </svg>
+          </a>
+          <div style="padding: 8px 10px; border-radius: 14px; background: #FFF3D9; color: #6A512A; font-size: 12px; line-height: 16px; font-weight: 800; text-align: center">每错一次，也是给花园松土。</div>
+        </div>
+      </div>
+    </section>
+
+    <aside style="min-height: 0; display: flex; flex-direction: column; gap: 12px">
+      <div style="border: 2px solid #D8E6D6; border-radius: 26px; background: #F1F8EE; padding: 18px; display: flex; flex-direction: column; gap: 12px; flex-grow: 1; box-shadow: 0 7px 0 #E2E9DB">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px">
+          <div style="font-family: 'Baloo 2', 'Noto Sans SC', sans-serif; font-size: 22px; line-height: 25px; font-weight: 800">需要小提示吗？</div>
+          <div aria-hidden="true" style="width: 42px; height: 42px; border-radius: 14px 14px 14px 4px; background: #F7D87B; display: grid; place-items: center; transform: rotate(3deg)">
+            <svg viewBox="0 0 30 30" style="width: 24px; height: 24px">
+              <path d="M15 24V12" stroke="#315D50" stroke-width="2.3" stroke-linecap="round"/>
+              <path d="M15 16C9 16 6 12 6 7C12 7 15 10 15 16Z" fill="#198B82"/>
+              <path d="M15 13C20 13 24 10 25 5C19 5 16 8 15 13Z" fill="#55B79D"/>
+            </svg>
+          </div>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 21px; font-weight: 700; color: #46675E">小提示只帮你迈出下一步，不会直接说出答案。</p>
+        <sc-if value="{{ helperOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 13px; display: flex; flex-direction: column; gap: 10px; border-radius: 18px; background: #FFFFFF; border: 2px solid #D9E9D9">
+            <div style="font-size: 12px; font-weight: 900; letter-spacing: 0.06em; color: #198B82">试试这样</div>
+            <div style="font-family: 'Baloo 2', 'Noto Sans SC', sans-serif; font-size: 25px; line-height: 29px; font-weight: 800">40 + 20 = ?</div>
+            <div style="font-family: 'Baloo 2', 'Noto Sans SC', sans-serif; font-size: 25px; line-height: 29px; font-weight: 800">7 + 6 = ?</div>
+            <div style="height: 1px; background: #E2EAE3"></div>
+            <div style="font-size: 13px; line-height: 18px; font-weight: 800; color: #46675E">再把两部分合起来。</div>
+          </div>
+        </sc-if>
+        <button onClick="{{ toggleHelper }}" style="min-height: 46px; border: 2px solid #C6DCCB; border-radius: 16px; background: #FFFFFF; color: #315D50; font-size: 14px; font-weight: 900; box-shadow: 0 3px 0 #DCE9DD">
+          {{ helperLabel }}
+        </button>
+      </div>
+
+      <div style="padding: 16px 18px; border: 2px solid #F0D7D5; border-radius: 23px; background: #FFF4F2; display: flex; align-items: center; gap: 13px">
+        <div aria-hidden="true" style="position: relative; flex: 0 0 auto; width: 48px; height: 52px">
+          <svg viewBox="0 0 50 56" style="width: 48px; height: 52px">
+            <path d="M25 22C14 22 9 29 11 41C13 50 20 54 26 54C34 54 40 48 40 38C40 28 35 22 25 22Z" fill="#E85E77"/>
+            <circle cx="20" cy="34" r="2.3" fill="#213D37"/>
+            <circle cx="32" cy="34" r="2.3" fill="#213D37"/>
+            <path d="M22 41C24 43 28 43 30 41" fill="none" stroke="#213D37" stroke-width="2" stroke-linecap="round"/>
+            <path d="M20 23C16 17 18 11 23 6C27 12 27 18 24 23" fill="#55B79D"/>
+            <path d="M27 22C31 15 36 14 41 16C39 22 34 25 28 24" fill="#198B82"/>
+          </svg>
+        </div>
+        <div style="min-width: 0">
+          <div style="font-family: 'Baloo 2', 'Noto Sans SC', sans-serif; font-size: 17px; line-height: 20px; font-weight: 800">小芽的口袋提示</div>
+          <div style="font-size: 12px; line-height: 17px; font-weight: 700; color: #6B5555">把大数拆成好算的小块。</div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 24px; font-size: 11px; font-weight: 800; color: #6D817A">
+    <div>慢慢想 · 不计时</div>
+    <div style="display: flex; align-items: center; gap: 7px">
+      <svg aria-hidden="true" viewBox="0 0 16 16" style="width: 14px; height: 14px; fill: none; stroke: #198B82; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round">
+        <path d="M2 8C4 4 12 4 14 8C12 12 4 12 2 8Z"/>
+        <circle cx="8" cy="8" r="2"/>
+      </svg>
+      草稿 · 二年级加减法
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#E85E77","options":["#E85E77","#198B82","#D58A2C"]},"$preview":{"width":1180,"height":820}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { entered: '', helperOpen: false };
+  }
+
+  renderVals() {
+    const colors = {
+      donePetal: '#F4B742',
+      doneCenter: '#E85E77',
+      activePetal: '#E85E77',
+      activeCenter: '#F4B742',
+      futurePetal: '#DCE7DB',
+      futureCenter: '#B4C9B7'
+    };
+    const trail = Array.from({ length: 18 }, (_, index) => {
+      const done = index < 5;
+      const active = index === 5;
+      return {
+        label: active ? '第 ' + (index + 1) + ' 题，当前题目' : '第 ' + (index + 1) + ' 题',
+        petal: done ? colors.donePetal : active ? colors.activePetal : colors.futurePetal,
+        center: done ? colors.doneCenter : active ? colors.activeCenter : colors.futureCenter,
+        style: 'width: 34px; height: 34px; display: grid; place-items: center; border-radius: 12px; background: ' + (active ? '#FFF0C8' : 'transparent') + '; border: ' + (active ? '2px solid #F0C45A' : '2px solid transparent')
+      };
+    });
+    const digits = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const press = (digit) => {
+      const next = (this.state.entered + digit).replace(/^0+(?=\\d)/, '').slice(0, 3);
+      this.setState({ entered: next });
+    };
+    return {
+      entered: this.state.entered,
+      helperOpen: this.state.helperOpen,
+      helperLabel: this.state.helperOpen ? '收起小提示' : '看看小提示',
+      trail,
+      keys: digits.map((digit) => ({
+        label: String(digit),
+        press: () => press(String(digit)),
+        style: 'height: 52px; border: 2px solid #D6E3DA; border-radius: 15px; background: #FFFFFF; color: #213D37; font-family: "Baloo 2", sans-serif; font-size: 24px; font-weight: 800; box-shadow: 0 3px 0 #DDE6DE'
+      })),
+      zeroPress: () => press('0'),
+      clear: () => this.setState({ entered: '' }),
+      backspace: () => this.setState({ entered: this.state.entered.slice(0, -1) }),
+      toggleHelper: () => this.setState({ helperOpen: !this.state.helperOpen })
+    };
+  }
+}
+</script>
+</body>
+</html>

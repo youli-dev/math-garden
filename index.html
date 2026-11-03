@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff8ea">
+  <meta name="description" content="数学花园：为 8 岁左右孩子设计的加减法练习，每道题都有看得见的解释。">
+  <title>数学花园 · 加减法练习</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Noto+Sans+SC:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="icon-flower" viewBox="0 0 24 24">
+      <circle cx="12" cy="7.2" r="4.5" fill="currentColor"/>
+      <circle cx="7.7" cy="11" r="4.5" fill="currentColor"/>
+      <circle cx="16.3" cy="11" r="4.5" fill="currentColor"/>
+      <circle cx="12" cy="14.2" r="4.5" fill="currentColor"/>
+      <circle cx="12" cy="10.7" r="3.2" style="fill: var(--flower-center, #f4b742)"/>
+    </symbol>
+    <symbol id="icon-sprout" viewBox="0 0 30 30">
+      <path d="M15 24V11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M15 16C9 16 6 12 6 7C12 7 15 10 15 16Z" fill="#198b82"/>
+      <path d="M15 13C20 13 24 10 25 5C19 5 16 8 15 13Z" fill="#6bbd9f"/>
+    </symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24">
+      <rect x="6.5" y="5" width="4" height="14" rx="1.4" fill="currentColor"/>
+      <rect x="13.5" y="5" width="4" height="14" rx="1.4" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="M4.5 12.5L9.2 17L19.5 6.8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M5 12H19M14 7L19 12L14 17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-hint" viewBox="0 0 24 24">
+      <path d="M8 19H16M9 22H15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M7 5H17V7C17 10.5 15 13 12 15C9 13 7 10.5 7 7V5Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M7 7H4C4 10.5 6 13 8.5 13M17 7H20C20 10.5 18 13 15.5 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-delete" viewBox="0 0 24 24">
+      <path d="M9 5H20V19H9L3 12L9 5Z" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 9L17 15M17 9L12 15" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M6 6L18 18M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24">
+      <path d="M4 5.5C7 4.5 10 5 12 6.7C14 5 17 4.5 20 5.5V19C17 18.5 14.5 19 12 20.5C9.5 19 7 18.5 4 19V5.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M12 6.7V20.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <div class="paper-garden" aria-hidden="true">
+    <svg class="paper-garden__top" viewBox="0 0 240 210">
+      <path d="M122 108C77 80 35 98 22 151C67 174 111 159 139 112C172 147 214 132 235 90C192 70 154 77 122 108Z" fill="#dcece1"/>
+      <path d="M132 118C128 68 163 41 207 53C208 96 179 126 140 131" fill="#abd7bf"/>
+      <path d="M132 118C105 70 64 66 31 95C50 132 88 145 133 128" fill="#f5b6be"/>
+    </svg>
+    <svg class="paper-garden__bottom" viewBox="0 0 240 180">
+      <path d="M12 159C46 113 84 109 119 131C87 158 63 170 28 178Z" fill="#f1c1c6"/>
+      <path d="M70 169C104 130 142 126 182 144C151 170 120 180 89 187Z" fill="#b9dcc7"/>
+      <path d="M151 169C182 139 213 137 241 150C218 173 191 184 164 191Z" fill="#f3d47a"/>
+    </svg>
+  </div>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" id="brandHome" aria-label="数学花园首页">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><use href="#icon-flower"></use></svg>
+        </span>
+        <span class="brand__copy">
+          <strong>数学花园</strong>
+          <small>每天一点点，数学开满花</small>
+        </span>
+      </a>
+      <div class="topbar__actions">
+        <span class="session-pill" id="sessionStatus">第 1 题 / 共 18 题</span>
+        <button class="icon-button" id="pauseButton" type="button" aria-label="暂停答题">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pause"></use></svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="view" id="quizView" aria-labelledby="questionTitle">
+        <div class="progress-card">
+          <span class="progress-card__label">花园小径</span>
+          <div class="flower-trail" id="progressList" aria-label="18 道题的完成进度"></div>
+          <span class="progress-card__count" id="progressCount">0 / 18</span>
+        </div>
+
+        <div class="play-layout">
+          <article class="quiz-card" id="questionCard">
+            <div class="question-heading-row">
+              <h1 id="questionTitle">算一算</h1>
+              <span class="skill-pill" id="questionType">两位数加法</span>
+            </div>
+
+            <div class="story-box" id="storyBox" hidden>
+              <span class="story-box__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><use href="#icon-flower"></use></svg>
+              </span>
+              <p id="storyText"></p>
+            </div>
+
+            <div class="equation" id="expression" aria-live="polite"></div>
+
+            <div class="answer-zone">
+              <span class="answer-zone__label" id="answerLabel">你的答案</span>
+              <output class="answer-display" id="answerDisplay" aria-label="当前答案为空">?</output>
+            </div>
+
+            <div class="keypad" id="keypad" aria-label="数字键盘">
+              <button class="key" type="button" data-digit="1">1</button>
+              <button class="key" type="button" data-digit="2">2</button>
+              <button class="key" type="button" data-digit="3">3</button>
+              <button class="key" type="button" data-digit="4">4</button>
+              <button class="key" type="button" data-digit="5">5</button>
+              <button class="key" type="button" data-digit="6">6</button>
+              <button class="key" type="button" data-digit="7">7</button>
+              <button class="key" type="button" data-digit="8">8</button>
+              <button class="key" type="button" data-digit="9">9</button>
+              <button class="key key--utility" type="button" data-action="clear">清空</button>
+              <button class="key" type="button" data-digit="0">0</button>
+              <button class="key key--utility key--icon" type="button" data-action="backspace" aria-label="删除上一位">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-delete"></use></svg>
+              </button>
+            </div>
+
+            <button class="primary-button" id="checkButton" type="button">
+              <span id="checkButtonLabel">检查答案</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+            </button>
+            <p class="gentle-note">每错一次，也是给花园松土。</p>
+          </article>
+
+          <aside class="side-stack">
+            <section class="hint-card" aria-labelledby="hintLabel">
+              <div class="hint-card__top">
+                <div>
+                  <h2 id="hintLabel">需要小提示吗？</h2>
+                  <p id="hintText">先自己试一试，卡住了再打开提示。</p>
+                </div>
+                <span class="sprout-badge" aria-hidden="true">
+                  <svg viewBox="0 0 30 30"><use href="#icon-sprout"></use></svg>
+                </span>
+              </div>
+              <button class="secondary-button" id="hintToggle" type="button" aria-expanded="false" aria-controls="hintText">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-hint"></use></svg>
+                <span>看看小提示</span>
+              </button>
+            </section>
+
+            <section class="explanation-panel" id="explanationPanel" hidden aria-labelledby="explanationHeadline">
+              <h2 id="explanationHeadline">看得见的解释</h2>
+              <div class="explanation-visual" id="explanationVisual"></div>
+              <div class="explanation-steps" id="explanationSteps"></div>
+              <p class="explanation-tip" id="explanationTip"></p>
+            </section>
+
+            <section class="feedback-card" id="feedbackCard" hidden aria-live="assertive">
+              <span class="feedback-card__icon" id="feedbackIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><use href="#icon-check"></use></svg>
+              </span>
+              <div>
+                <h2 id="feedbackTitle">开出一朵花！</h2>
+                <p id="feedbackText"></p>
+              </div>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view summary-view" id="summaryView" hidden aria-labelledby="summaryTitle">
+        <div class="summary-hero">
+          <div class="summary-hero__copy">
+            <h1 id="summaryTitle">你的花园开花了</h1>
+            <p id="summaryLead">两个小难点，已经变成下次的线索。</p>
+            <div class="summary-score" aria-label="本局成绩">
+              <strong id="summaryScore">0</strong>
+              <span>朵花</span>
+              <small id="summaryTotal">共 18 题</small>
+            </div>
+            <div class="summary-actions">
+              <button class="primary-button" id="newSessionButton" type="button">
+                <span>再种一座新花园</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+              </button>
+              <button class="secondary-button" id="reviewWrongButton" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-book"></use></svg>
+                <span>复习易错题</span>
+              </button>
+            </div>
+          </div>
+          <div class="summary-hero__garden" aria-hidden="true">
+            <span class="summary-flower summary-flower--one"></span>
+            <span class="summary-flower summary-flower--two"></span>
+            <span class="summary-flower summary-flower--three"></span>
+            <span class="summary-flower summary-flower--four"></span>
+            <span class="summary-flower summary-flower--five"></span>
+            <span class="summary-sprout">
+              <svg viewBox="0 0 30 30"><use href="#icon-sprout"></use></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <section class="summary-card summary-card--map" aria-labelledby="mapTitle">
+            <div class="summary-card__heading">
+              <h2 id="mapTitle">你的题目地图</h2>
+              <div class="map-legend" aria-label="图例">
+                <span><i class="legend-dot legend-dot--correct"></i>答对</span>
+                <span><i class="legend-dot legend-dot--wrong"></i>再练一次</span>
+              </div>
+            </div>
+            <div class="summary-map" id="summaryMap"></div>
+            <p class="summary-map-note">每朵花是一道题，颜色帮你找到需要再看一次的位置。</p>
+          </section>
+
+          <section class="summary-card" aria-labelledby="skillsTitle">
+            <div class="summary-card__heading">
+              <h2 id="skillsTitle">今天长出的本领</h2>
+            </div>
+            <div class="skills-list" id="summarySkills"></div>
+          </section>
+
+          <section class="summary-card summary-card--tip" aria-labelledby="nextTipTitle">
+            <div class="summary-card__heading">
+              <h2 id="nextTipTitle">小芽的下次提醒</h2>
+            </div>
+            <p class="next-tip" id="summaryTip"></p>
+          </section>
+        </div>
+
+        <section class="wrong-review" id="wrongReviewPanel" hidden aria-labelledby="wrongReviewTitle">
+          <div class="wrong-review__heading">
+            <h2 id="wrongReviewTitle">再看看这几道题</h2>
+            <p>先不用重新答题，读懂每一步就好。</p>
+          </div>
+          <div class="wrong-review__list" id="wrongReviewList"></div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="pause-dialog" id="pauseDialog" aria-labelledby="pauseTitle">
+    <form method="dialog" class="pause-dialog__inner">
+      <div class="pause-dialog__intro">
+        <span class="pause-dialog__icon" aria-hidden="true">
+          <svg viewBox="0 0 30 30"><use href="#icon-sprout"></use></svg>
+        </span>
+        <h2 id="pauseTitle">小小休息一下</h2>
+      </div>
+      <p>你的题目都还在，准备好再继续。</p>
+      <button class="primary-button" value="resume" id="resumeButton" type="submit">继续答题</button>
+      <button class="text-button" value="restart" id="restartButton" type="submit">重新开始一局</button>
+    </form>
+  </dialog>
+
+  <div class="sr-only" id="announcer" aria-live="polite" aria-atomic="true"></div>
+  <noscript>这个练习需要启用 JavaScript 才能生成题目。</noscript>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

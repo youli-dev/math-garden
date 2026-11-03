@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>数学花园 · 温和纠错</title>
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+SC:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans SC", sans-serif;
+      color: #213D37;
+      background-color: #FFF8EA;
+      background-image: radial-gradient(#E9DDC8 0.9px, transparent 0.9px);
+      background-size: 20px 20px;
+    }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    a { color: #213D37; }
+    a:hover { color: #8E344D; }
+  </style>
+</helmet>
+<div style="width: 1180px; height: 820px; box-sizing: border-box; position: relative; overflow: hidden; padding: 22px 28px 20px; display: flex; flex-direction: column; gap: 14px">
+  <svg aria-hidden="true" viewBox="0 0 210 170" style="position: absolute; width: 210px; height: 170px; left: -48px; bottom: -38px; opacity: 0.9">
+    <path d="M10 158C37 106 70 100 105 118C70 144 49 160 10 170Z" fill="#D9ECDF"/>
+    <path d="M50 161C74 121 105 111 140 122C117 151 99 166 66 174Z" fill="#F4C6CA"/>
+    <path d="M115 158C139 125 166 122 197 134C176 157 151 169 125 176Z" fill="#B9DCC7"/>
+  </svg>
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <div aria-hidden="true" style="width: 46px; height: 46px; border-radius: 16px 16px 16px 5px; background: #E85E77; display: grid; place-items: center; box-shadow: 0 4px 0 #B73A57">
+        <svg viewBox="0 0 30 30" style="width: 27px; height: 27px">
+          <circle cx="15" cy="9" r="6" fill="#FFF5E7"/>
+          <circle cx="9" cy="15" r="6" fill="#FFF5E7"/>
+          <circle cx="21" cy="15" r="6" fill="#FFF5E7"/>
+          <circle cx="15" cy="21" r="6" fill="#FFF5E7"/>
+          <circle cx="15" cy="15" r="5" fill="#F4B742"/>
+        </svg>
+      </div>
+      <div>
+        <div style="font-family: 'Baloo 2', 'Noto Sans SC', sans-serif; font-size: 25px; line-height: 25px; font-weight: 800; letter-spacing: -0.4px">数学花园</div>
+        <div style="font-size: 12px; line-height: 16px; font-weight: 800; letter-spacing: 0.06em; color: #56766E">每天一点点，数学开满花</div>
+      </div>
+    </div>
+    <div style="height: 42px; padding: 0 16px; display: flex; align-items: center; gap: 9px; border: 2px solid #CFE1D5; border-radius: 999px; background: #FFFFFFB8; font-weight: 800; font-size: 14px">
+      <svg aria-hidden="true" viewBox="0 0 18 18" style="width: 17px; height: 17px; fill: none; stroke: #198B82; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round">
+        <path d="M9 2C6 5 6 8 9 11C12 8 12 5 9 2Z"/>
+        <path d="M9 10V16"/>
+        <path d="M9 14C6 14 4 12 3 9C6 9 8 10 9 14Z"/>
+        <path d="M9 13C12 13 14 11 15 9C12 8 10 10 9 13Z"/>
+      </svg>
+      <span>第 6 题 / 共 18 题</span>
+    </div>
+  </header>
+
+  <main style="min-height: 0; flex-grow: 1; display: grid; grid-template-columns: 346px minmax(0, 1fr); gap: 18px">
+    <section style="min-height: 0; display: flex; flex-direction: column; gap: 13px">
+      <div style="padding: 23px 22px 21px; border: 2px solid #EBC6C7; border-radius: 28px; background: #FFF4F1; box-shadow: 0 7px 0 #E9D8CF; position: relative; overflow: hidden">
+        <svg aria-hidden="true" viewBox="0 0 100 100" style="position: absolute; width: 92px; height: 92px; right: -15px; top: -16px; opacity: 0.7">
+          <circle cx="50" cy="50" r="44" fill="none" stroke="#F0C8C4" stroke-width="13"/>
+        </svg>
+        <div style="font-size: 12px; line-height: 16px; font-weight: 900; letter-spacing: 0.08em; color: #A1495D">差一点！</div>
+        <h1 style="margin: 6px 0 7px; font-family: 'Baloo 2', 'Noto Sans SC', sans-serif; font-size: 36px; line-height: 38px; letter-spacing: -0.6px">一起把它算明白</h1>
+        <p style="margin: 0; font-size: 15px; line-height: 22px; font-weight: 700; color: #6B5555">你已经找到两部分，只是个位里还藏着一个十。</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+        <div style="padding: 16px 17px; border: 2px solid #E2DCD2; border-radius: 21px; background: #FFFDF8">
+          <div style="font-size: 11px; line-height: 14px; font-weight: 900; letter-spacing: 0.06em; color: #7C8A83">你的答案</div>
+          <div style="margin-top: 5px; font-family: 'Baloo 2', sans-serif; font-size: 42px; line-height: 44px; font-weight: 800; color: #A1495D">63</div>
+        </div>
+        <div style="padding: 16px 17px; border: 2px solid #AED1BA; border-radius: 21px; background: #ECF8EE">
+          <div style="font-size: 11px; line-height: 14px; font-weight: 900; letter-spacing: 0.06em; color: #3E6B5B">正确答案</div>
+          <div style="margin-top: 5px; font-family: 'Baloo 2', sans-serif; font-size: 42px; line-height: 44px; font-weight: 800; color: #167C73">73</div>
+        </div>
+      </div>
+
+      <div style="padding: 17px 18px; border: 2px solid #D9E5D8; border-radius: 23px; background: #F5FAF1; display: flex; flex-direction: column; gap: 9px">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 900; color: #315D50">
+          <svg aria-hidden="true" viewBox="0 0 20 20" style="width: 18px; height: 18px; fill: none; stroke: #198B82; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round">
+            <path d="M3 10L8 15L17 5"/>
+          </svg>
+          记住这条
+        </div>
+        <div style="font-family: 'Baloo 2', 'Noto Sans SC', sans-serif; font-size: 24px; line-height: 28px; font-weight: 800">个位满十，<br>向十位进一。</div>
+      </div>
+    </section>
+
+    <section style="min-height: 0; padding: 20px 23px; border: 2px solid #D7DFD5; border-radius: 30px; background: #FFFFFCF2; box-shadow: 0 7px 0 #E8DFCF; display: flex; flex-direction: column; gap: 15px">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px">
+        <div>
+          <div style="font-size: 12px; line-height: 16px; font-weight: 900; letter-spacing: 0.08em; color: #198B82">分两步看</div>
+          <h2 style="margin: 4px 0 0; font-family: 'Baloo 2', 'Noto Sans SC', sans-serif; font-size: 31px; line-height: 34px; letter-spacing: -0.4px">47 + 26 = 73</h2>
+        </div>
+        <div aria-hidden="true" style="width: 58px; height: 58px; flex: 0 0 auto; border-radius: 20px 20px 20px 6px; background: #F7D87B; display: grid; place-items: center; transform: rotate(2deg)">
+          <svg viewBox="0 0 40 40" style="width: 40px; height: 40px">
+            <rect x="8" y="10" width="6" height="22" rx="3" fill="#E85E77"/>
+            <rect x="17" y="10" width="6" height="22" rx="3" fill="#E85E77"/>
+            <rect x="26" y="10" width="6" height="22" rx="3" fill="#E85E77"/>
+            <rect x="8" y="4" width="6" height="4" rx="2" fill="#A93C55"/>
+            <rect x="17" y="4" width="6" height="4" rx="2" fill="#A93C55"/>
+            <rect x="26" y="4" width="6" height="4" rx="2" fill="#A93C55"/>
+          </svg>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr); gap: 12px; align-items: stretch">
+        <div style="padding: 16px; border: 2px solid #DCE7D8; border-radius: 20px; background: #F6FAF2">
+          <div style="font-size: 12px; font-weight: 900; color: #6A7B73">第一步 · 个位</div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px">
+            <div style="font-family: 'Baloo 2', sans-serif; font-size: 38px; line-height: 1; font-weight: 800">7 + 6 =</div>
+            <div style="padding: 8px 13px; border-radius: 14px; background: #E85E77; color: #FFF9EF; font-family: 'Baloo 2', sans-serif; font-size: 31px; line-height: 1; font-weight: 800">13</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 9px; margin-top: 13px">
+            <div style="display: flex; gap: 3px">
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #E85E77"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #E85E77"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #E85E77"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #E85E77"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #E85E77"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #E85E77"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #E85E77"></div>
+            </div>
+            <div style="font-size: 16px; font-weight: 900; color: #7C8A83">+</div>
+            <div style="display: grid; grid-template-columns: repeat(3, 11px); gap: 3px">
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #F4B742"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #F4B742"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #F4B742"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #F4B742"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #F4B742"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #F4B742"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; place-items: center">
+          <div style="font-size: 22px; font-weight: 900; color: #9AA9A0">→</div>
+        </div>
+
+        <div style="padding: 16px; border: 2px solid #F1DFB5; border-radius: 20px; background: #FFF9E8">
+          <div style="font-size: 12px; font-weight: 900; color: #7B6A49">别忘了</div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-size: 34px; line-height: 36px; font-weight: 800; margin-top: 7px">13 = 10 + 3</div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 9px">
+            <div style="width: 25px; height: 52px; border-radius: 8px; background: #E85E77; border: 2px solid #A93C55"></div>
+            <div style="display: grid; grid-template-columns: repeat(3, 11px); gap: 3px">
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #F4B742"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #F4B742"></div>
+              <div style="width: 11px; height: 11px; border-radius: 50%; background: #F4B742"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 17px 19px; border: 2px solid #DCECE3; border-radius: 22px; background: #F2F8F3; display: grid; grid-template-columns: 1fr 30px 1fr; align-items: center; gap: 12px">
+        <div>
+          <div style="font-size: 11px; font-weight: 900; letter-spacing: 0.06em; color: #5C786D">第二步 · 十位</div>
+          <div style="margin-top: 4px; font-family: 'Baloo 2', sans-serif; font-size: 27px; line-height: 30px; font-weight: 800">40 + 20 + 10</div>
+        </div>
+        <div style="font-size: 22px; font-weight: 900; color: #8CA39A">=</div>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <div style="font-family: 'Baloo 2', sans-serif; font-size: 37px; line-height: 37px; font-weight: 800; color: #167C73">70</div>
+          <div style="padding: 7px 10px; border-radius: 12px; background: #FFFFFF; font-size: 12px; font-weight: 900; color: #48675C">再加 3</div>
+          <div style="font-family: 'Baloo 2', sans-serif; font-size: 42px; line-height: 42px; font-weight: 800; color: #167C73">73</div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+        <div style="display: flex; align-items: center; gap: 9px; font-size: 13px; line-height: 18px; font-weight: 800; color: #5D766D">
+          <svg aria-hidden="true" viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: none; stroke: #198B82; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round">
+            <path d="M7 20H17M12 16V20"/>
+            <path d="M8 4H16V6C16 10 14 12 12 14C10 12 8 10 8 6V4Z"/>
+            <path d="M8 6H5C5 10 7 12 9 12M16 6H19C19 10 17 12 15 12"/>
+          </svg>
+          没有扣分。你发现了一个新规律。
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px">
+          <a href="Main.dc.html" style="height: 50px; padding: 0 19px; display: flex; align-items: center; justify-content: center; border: 2px solid #D3E0D4; border-radius: 16px; background: #FFFFFF; color: #315D50; font-size: 14px; font-weight: 900; text-decoration: none; box-shadow: 0 3px 0 #DCE7DB">回到答题</a>
+          <a href="Main.dc.html" style="height: 50px; padding: 0 20px; display: flex; align-items: center; justify-content: center; gap: 9px; border-radius: 16px; background: #213D37; color: #FFF8EA; font-size: 15px; font-weight: 900; text-decoration: none; box-shadow: 0 4px 0 #102B26">
+            再练一道类似的
+            <svg aria-hidden="true" viewBox="0 0 20 20" style="width: 18px; height: 18px; fill: none; stroke: #FFF8EA; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round">
+              <path d="M4 10H16M11 5L16 10L11 15"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1180,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
